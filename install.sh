@@ -5,7 +5,14 @@ REPO="https://github.com/arkeejs/FFlag-Injector.git"
 RAW="https://raw.githubusercontent.com/arkeejs/FFlag-Injector/refs/heads/main"
 APP_DIR="${HOME}/.local/share/fflags-injector"
 BIN_DIR="${HOME}/.local/bin"
-SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_PATH="${BASH_SOURCE[0]:-}"
+if [[ -n "$SCRIPT_PATH" && -f "$SCRIPT_PATH" ]]; then
+  SCRIPT_DIR="$(cd -- "$(dirname -- "$SCRIPT_PATH")" && pwd)"
+else
+  # When piped through curl, there is no script file path. Local Setup
+  # is only available when running the installer from an extracted ZIP.
+  SCRIPT_DIR="$PWD"
+fi
 
 banner() {
   clear 2>/dev/null || true
