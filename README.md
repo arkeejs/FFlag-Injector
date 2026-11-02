@@ -30,13 +30,13 @@ A modern terminal-based FFlags utility for Linux, built with Python and Rich.
 This fetches the current application files directly from GitHub raw content. It does **not** clone the repository or download Git history.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ArkeeDev/FFlags-Injector/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/arkeejs/FFlags-Injector/main/install.sh | bash
 ```
 
 ### Git Installation
 
 ```bash
-git clone https://github.com/ArkeeDev/FFlags-Injector.git
+git clone https://github.com/arkeejs/FFlags-Injector.git
 cd FFlags-Injector
 bash install.sh
 ```

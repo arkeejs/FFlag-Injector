@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="https://github.com/ArkeeDev/FFlags-Injector.git"
+REPO="https://github.com/arkeejs/FFlags-Injector.git"
 APP_DIR="${HOME}/.local/share/fflags-injector"
 BIN_DIR="${HOME}/.local/bin"
 
@@ -25,8 +25,8 @@ setup_quick() {
   need_python
   mkdir -p "$APP_DIR" "$BIN_DIR"
   # This mode downloads the application source directly, without cloning Git history.
-  curl -fsSL "https://raw.githubusercontent.com/ArkeeDev/FFlags-Injector/main/main.py" -o "$APP_DIR/main.py"
-  curl -fsSL "https://raw.githubusercontent.com/ArkeeDev/FFlags-Injector/main/requirements.txt" -o "$APP_DIR/requirements.txt"
+  curl -fsSL "https://raw.githubusercontent.com/arkeejs/FFlags-Injector/main/main.py" -o "$APP_DIR/main.py"
+  curl -fsSL "https://raw.githubusercontent.com/arkeejs/FFlags-Injector/main/requirements.txt" -o "$APP_DIR/requirements.txt"
   python3 -m pip install --user -r "$APP_DIR/requirements.txt"
   cat > "$BIN_DIR/fflags-injector" <<EOF
 #!/usr/bin/env bash

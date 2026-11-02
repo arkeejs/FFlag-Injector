@@ -25,8 +25,8 @@ except ImportError:
     raise SystemExit(1)
 
 APP_NAME = "FFlags Injector"
-REPO = "https://github.com/ArkeeDev/FFlags-Injector.git"
-RAW_INSTALLER = "https://raw.githubusercontent.com/ArkeeDev/FFlags-Injector/main/install.sh"
+REPO = "https://github.com/arkeejs/FFlags-Injector.git"
+RAW_INSTALLER = "https://raw.githubusercontent.com/arkeejs/FFlags-Injector/main/install.sh"
 console = Console(theme=Theme({
     "accent": "bold white",
     "muted": "bright_black",
@@ -64,7 +64,6 @@ def animated_step(label, detail=None, duration=0.45):
         SpinnerColumn(style="white"),
         TextColumn("[white]{task.description}"),
         console=console,
-        transient=True,
     ) as progress:
         task = progress.add_task(label, total=None)
         time.sleep(duration)
