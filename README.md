@@ -2,46 +2,52 @@
 
 A modern terminal-based FFlags utility for Linux, built with Python and Rich.
 
-**By ArkeeDev**
+**By ArkeeDev** · https://github.com/arkeejs/FFlag-Injector
 
 ## Features
 
-- Animated terminal splash screen and setup checks
-- Linux distribution and Sober detection
-- Interactive FFlags JSON input and validation
-- Merge FFlags into an existing JSON object
-- Automatic timestamped backups before changes
-- View, restore, and clear configuration
-- Quick Setup without cloning Git history
-- Git installation with pull-to-update support
+- Animated terminal splash screen and environment checks
+- Automatic Linux distribution and Sober detection
+- Sober FFlags are written inside the nested `fflags` object
+- JSON validation, merge, backup, restore, view and clear
+- Quick Setup without cloning Git history, or Git installation/update
 
 ## Requirements
 
 - Linux
-- Python 3.9+
+- Python 3.10+
 - `curl` for Quick Setup
-- `git` for Git Installation
-- Python package `rich` (installed by the setup script)
+- `git` for Git Setup
 
 ## Installation
 
 ### Quick Setup (no Git clone)
 
-This fetches the current application files directly from GitHub raw content. It does **not** clone the repository or download Git history.
-
 ```bash
-curl -fsSL https://raw.githubusercontent.com/arkeejs/FFlags-Injector/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/arkeejs/FFlag-Injector/refs/heads/main/install.sh | bash
 ```
 
-### Git Installation
+Choose option `2` (Quick Setup).
+
+### Git Setup
 
 ```bash
-git clone https://github.com/arkeejs/FFlags-Injector.git
-cd FFlags-Injector
+git clone https://github.com/arkeejs/FFlag-Injector.git
+cd FFlag-Injector
 bash install.sh
 ```
 
-Choose option `2` in the installer.
+Choose option `3` (Git Setup).
+
+### Local Setup from ZIP
+
+Extract the release ZIP, enter the `FFlags-Injector` folder, and run:
+
+```bash
+bash install.sh
+```
+
+Choose option `1` (Local Setup).
 
 ## Run
 
@@ -49,33 +55,25 @@ Choose option `2` in the installer.
 fflags-injector
 ```
 
-If the command is not found, add `~/.local/bin` to PATH:
+If Fish cannot find the command, add the launcher directory:
 
-```bash
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+```fish
+fish_add_path ~/.local/bin
 ```
 
-## FFlags file path
+## Sober configuration
 
-The injector checks common Sober configuration paths first. If none exists, it asks for a path manually. Sober's configuration layout can change between releases, so verify the selected path for your installed version.
+Sober configuration path:
+
+`~/.var/app/org.vinegarhq.Sober/config/sober/config.json`
+
+FFlags are stored inside the `fflags` object. The injector merges supplied flags without replacing unrelated settings and creates a timestamped backup before writing.
 
 ## Important
 
-- Close Roblox/Sober before changing flags, then restart it after injection.
-- The tool validates JSON and creates a backup before modifying an existing file.
-- It merges supplied flags with existing flags; keys with the same name are replaced.
-- Only use FFlags that are supported by your Roblox client. Unsupported flags may be ignored or cause unexpected behavior.
+- Close Roblox/Sober before changing configuration, then restart it after injection.
+- Roblox may ignore flags outside its current allowlist.
 - This project does not bypass anti-cheat, modify game binaries, or guarantee FPS improvements.
-
-## Development
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python main.py
-```
 
 ## License
 
